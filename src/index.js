@@ -1,12 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { getSnapshot } from 'mobx-state-tree';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './components/App';
+import { WishList } from './models/WishList';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+let initialState = {
+  items: [
+    {
+      name: 'Chronicles of Narnia Box Sert - CS Lewis',
+      price: 28.73
+    },
+    {
+      name: 'Star Wars',
+      price: 17.0
+    }
+  ]
+};
+
+let wishList = WishList.create(initialState);
+function renderApp() {
+  ReactDOM.render(<App wishList={wishList} />, document.querySelector('#root'));
+}
+
+renderApp();
+
+if (module.hot) {
+  module.hot.accept(['./components/App'], () => {
+    // new components
+    renderApp();
+  });
+
+  module.hot.accept(['./models/WishList'], () => {
+    // new model definitions
+    const snapshot = getSnapshot(wishList);
+    wishList = WishList.create(snapshot);
+    renderApp();
+  });
+}
