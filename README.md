@@ -43,7 +43,9 @@ Models are the core of MST as they describe the shape of the app state and perfo
 ### Actions
 Actions are attached to the models to define behaviour. They can make use of the methods exposed by MST,
 such as destroy, which removes a model element from the state tree. A full list of methods can be 
-found [here][https://github.com/mobxjs/mobx-state-tree/blob/master/docs/API/README.md].  
+found [here][github].  
+
+[github]: https://github.com/mobxjs/mobx-state-tree/blob/master/docs/API/README.md
 
 ### Views
 Views without arguments such as that used on the WishList model are a computed field. They create an explicit 
