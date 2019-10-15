@@ -3,11 +3,9 @@
 ## Installation
 `npm install`  
 `npm start`  
-
-Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.  
 
-This repo is based on Michael Westrate's [Egghead][egghead] tutorial. 
+This repo is based on Michael Weststrate's [Egghead][egghead] tutorial. 
 
 [egghead]: https://egghead.io/lessons/react-describe-your-application-domain-using-mobx-state-tree-mst-models
 
